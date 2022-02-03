@@ -5,7 +5,9 @@
 import React, {useState} from 'react';
 
 // import all the components we are going to use
-import {StyleSheet} from 'react-native';
+import {LogBox, StyleSheet} from 'react-native';
+
+LogBox.ignoreLogs(['Reanimated 2', 'check out new Gestures system']);
 
 import IntroSlider from './components/intro/IntroSlider';
 import Home from './screens/Home';
