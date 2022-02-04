@@ -11,7 +11,6 @@ import {NavigationContainer} from '@react-navigation/native';
 LogBox.ignoreLogs(['Reanimated 2', 'check out new Gestures system']);
 
 import IntroSlider from './components/intro/IntroSlider';
-import Home from './screens/Home';
 import Tabs from './navigations/Tabs';
 
 const App = () => {
@@ -29,7 +28,7 @@ const App = () => {
       {showRealApp ? (
         // <Home changeState={() => setShowRealApp(false)} />
         <NavigationContainer>
-          <Tabs />
+          <Tabs changeState={() => setShowRealApp(false)} />
         </NavigationContainer>
       ) : (
         <IntroSlider onDone={onDone} onSkip={onSkip} />

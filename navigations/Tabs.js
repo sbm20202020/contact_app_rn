@@ -4,6 +4,9 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
+import AnnoncesScreen from '../screens/AnnoncesScreen';
+import MembresScreen from '../screens/MembresScreen';
+import SettingScreen from '../screens/SettingScreen';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
@@ -75,7 +78,7 @@ export default function Tabs() {
       />
       <Tab.Screen
         name="tab_screen_annonce"
-        component={HomeScreen}
+        component={AnnoncesScreen}
         options={{
           tabBarIcon: ({focused}) => (
             <View
@@ -119,7 +122,7 @@ export default function Tabs() {
 
       <Tab.Screen
         name="tab_screen_find"
-        component={HomeScreen}
+        component={MembresScreen}
         options={{
           tabBarIcon: ({focused}) => (
             <View
@@ -144,7 +147,7 @@ export default function Tabs() {
 
       <Tab.Screen
         name="tab_screen_settings"
-        component={HomeScreen}
+        component={SettingScreen}
         options={{
           tabBarIcon: ({focused}) => (
             <View

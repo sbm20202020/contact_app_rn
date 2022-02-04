@@ -6,20 +6,20 @@
 import * as React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const SettingScreen = ({navigation}) => {
+const AnnoncesScreen = ({navigation}) => {
   return (
-    <View style={styles.setting}>
-      <Text>Reglages !</Text>
+    <View style={styles.annonces}>
+      <Text>Bienvenue dans les annonces !</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  setting: {
+  annonces: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
 });
 
-export default SettingScreen;
+export default AnnoncesScreen;
