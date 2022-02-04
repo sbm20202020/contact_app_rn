@@ -40,25 +40,48 @@ const SPACING = 20;
 const AVATAR_SIZE = 70;
 const BG_IMG =
   'https://images.pexels.com/photos/1231265/pexels-photo-1231265.jpeg?auto';
+const ITEM_SIZE = AVATAR_SIZE + SPACING * 3;
 
 const MembresScreen = ({navigation}) => {
+  const scrollY = React.useRef(new Animated.Value(0)).current;
   return (
     <View
       style={{
         flex: 1,
-        marginBottom: '37%',
-        // paddingTop: SPACING,
+        // marginBottom: '3%',
+        paddingTop: SPACING,
+        backgroundColor: '#dcdee0',
       }}>
-      <FlatList
+      <Image
+        source={{uri: BG_IMG}}
+        style={StyleSheet.absoluteFillObject}
+        blurRadius={90}
+      />
+      <Animated.FlatList
         data={DATA}
+        onScroll={Animated.event(
+          [{nativeEvent: {contentOffset: {y: scrollY}}}],
+          {useNativeDriver: true},
+        )}
         keyExtractor={item => item.key}
         contentContainerStyle={{
           padding: SPACING,
           paddingTop: StatusBar.currentHeight || 42,
         }}
         renderItem={({item, index}) => {
+          const inputRange = [
+            -1,
+            0,
+            ITEM_SIZE * index,
+            ITEM_SIZE * (index + 2),
+          ];
+
+          const scale = scrollY.interpolate({
+            inputRange,
+            outputRange: [1, 1, 1, 0],
+          });
           return (
-            <View style={styles.membres}>
+            <Animated.View style={{...styles.membres, transform: [{scale}]}}>
               <Image
                 source={{uri: item.image}}
                 style={{
@@ -79,7 +102,7 @@ const MembresScreen = ({navigation}) => {
                   {item.email}
                 </Text>
               </View>
-            </View>
+            </Animated.View>
           );
         }}
       />
@@ -90,7 +113,7 @@ const MembresScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   membres: {
     flexDirection: 'row',
-    marginBottom: 5,
+    marginBottom: 10,
     padding: 10,
     backgroundColor: 'rgba(255, 255, 255, 0.8)',
     borderRadius: 10,
@@ -99,6 +122,9 @@ const styles = StyleSheet.create({
       width: 0,
       height: 10,
     },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 50,
   },
 });
 
