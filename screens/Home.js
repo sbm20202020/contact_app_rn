@@ -11,7 +11,9 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
-import Animated from 'react-native-reanimated';
+// import Animated from 'react-native-reanimated';
+
+import HomeScreen from './HomeScreen';
 
 function Feed() {
   return (
@@ -56,8 +58,8 @@ function Home() {
           drawerType: isLargeScreen ? 'permanent' : 'back',
         }}
         drawerContent={props => <CustomDrawerContent {...props} />}>
-        <Drawer.Screen name="Feed" component={Feed} />
-        <Drawer.Screen name="Article" component={Article} />
+        <Drawer.Screen name="Accueil" component={HomeScreen} />
+        <Drawer.Screen name="Profile" component={Article} />
       </Drawer.Navigator>
     </NavigationContainer>
   );

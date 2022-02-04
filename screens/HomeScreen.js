@@ -4,52 +4,37 @@
 
 import * as React from 'react';
 import {Button, View, Text, SafeAreaView} from 'react-native';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const Tab = createMaterialTopTabNavigator();
 
 const HomeScreen = ({navigation}) => {
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <View style={{flex: 1, padding: 16}}>
-        <View
-          style={{
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <Text
-            style={{
-              fontSize: 25,
-              textAlign: 'center',
-              marginBottom: 16,
-            }}>
-            Home Screen
-          </Text>
-          <Button
-            onPress={() => navigation.navigate('SettingScreenStack')}
-            title="Go to Setting Screen"
-          />
-          <Button
-            onPress={() => navigation.navigate('ExploreScreen')}
-            title="Go to Explore Screen"
-          />
-        </View>
-        <Text
-          style={{
-            fontSize: 18,
-            textAlign: 'center',
-            color: 'grey',
-          }}>
-          React Navigate Drawer with Top Tab
-        </Text>
-        <Text
-          style={{
-            fontSize: 16,
-            textAlign: 'center',
-            color: 'grey',
-          }}>
-          www.aboutreact.com
-        </Text>
-      </View>
-    </SafeAreaView>
+    <Text>It okay</Text>
+    // <Tab.Navigator
+    //   tabBarOptions={{
+    //     showIcon: true,
+    //     showLabel: false,
+    //   }}>
+    //   <Tab.Screen
+    //     name="Personnes"
+    //     component={Personnes}
+    //     options={{
+    //       tabBarLabel: '',
+    //       // tabBarIcon: ({tintColor}) => (
+    //       //   // <Ionicons
+    //       //   //   testID="facebook"
+    //       //   //   name="home"
+    //       //   //   color="red"
+    //       //   //   size={24}
+    //       //   //   style={{backgroundColor: 'transparent'}}
+    //       //   // />
+    //       // ),
+    //     }}
+    //   />
+    //   <Tab.Screen name="Annonces" component={Annonces} />
+    // </Tab.Navigator>
   );
 };
 
